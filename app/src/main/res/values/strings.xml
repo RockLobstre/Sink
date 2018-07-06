@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Offline Sample App</string>
+    <string name="app_name">Sink:Remote/Local Sync</string>
     <string name="comments_sample_photo_caption">The Breakers in Newport, Rhode Island</string>
     <string name="comments_add_comment_hint">comment</string>
     <string name="comments_add_comment_button_text">add</string>
