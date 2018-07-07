@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.animation.OvershootInterpolator;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
@@ -24,6 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import dagger.android.AndroidInjection;
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 
 public class CommentsActivity extends AppCompatActivity implements LifecycleRegistryOwner {
 
@@ -94,6 +96,9 @@ public class CommentsActivity extends AppCompatActivity implements LifecycleRegi
 
         RecyclerView.LayoutManager recyclerViewLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(recyclerViewLayoutManager);
+
+        SlideInUpAnimator animator = new SlideInUpAnimator(new OvershootInterpolator(1f));
+        recyclerView.setItemAnimator(animator);
 
         recyclerViewAdapter = new CommentListAdapter(new ArrayList<>());
         recyclerView.setAdapter(recyclerViewAdapter);

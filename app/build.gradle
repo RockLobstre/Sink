@@ -16,6 +16,8 @@ project.ext {
     okHttpVersion = "3.4.1"
     rxRelayVersion = "2.0.0"
     rxLintVersion = "1.6"
+    animationVersion = "2.4.0"
+    animatorVersion = "2.3.0"
 }
 
 android {
@@ -83,6 +85,9 @@ dependencies {
     // RecyclerView
     implementation "com.android.support:recyclerview-v7:$project.supportLibraryVersion"
 
+    // CardView
+    implementation "com.android.support:cardview-v7:$project.supportLibraryVersion"
+
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$project.retrofitVersion"
 
@@ -108,4 +113,10 @@ dependencies {
 
     // RxLint
     implementation "nl.littlerobots.rxlint:rxlint:$project.rxLintVersion"
+
+    //Recyclerview Animators
+    implementation "jp.wasabeef:recyclerview-animators:$project.animatorVersion"
+
+    //NineOldAndroids
+    implementation "com.nineoldandroids:library:$project.animationVersion"
 }
