@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply from: "$project.rootDir/config/quality.gradle"
 
 project.ext {
-    supportLibraryVersion = "26.1.0"
+    supportLibraryVersion = "27.0.2"
     androidArchVersion = "1.0.0-rc1"
     daggerVersion = "2.11"
     butterKnifeVersion = "8.7.0"
@@ -22,6 +22,7 @@ project.ext {
 
 android {
     compileSdkVersion 27
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.rocklobstre.sink"
         minSdkVersion 16
@@ -34,6 +35,8 @@ android {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
         }
+
+        multiDexEnabled true
     }
 
     buildTypes {

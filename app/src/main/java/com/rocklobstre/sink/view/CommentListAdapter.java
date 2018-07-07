@@ -82,7 +82,6 @@ public class CommentListAdapter extends RecyclerView.Adapter<CommentListAdapter.
         this.comments.clear();
         this.comments.addAll(newComments);
         notifyDataSetChanged();
-        notifyItemInserted(0);
     }
 
     /**
