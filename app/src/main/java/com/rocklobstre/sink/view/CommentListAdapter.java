@@ -29,7 +29,6 @@ import timber.log.Timber;
 public class CommentListAdapter extends RecyclerView.Adapter<CommentListAdapter.ViewHolder> {
 
     private final List<Comment> comments;
-    private static final long[] delayList = {400, 500, 600, 700, 800, 900};
     private int lastPosition = -1;
     private Animator mAnimator;
 
@@ -104,30 +103,7 @@ public class CommentListAdapter extends RecyclerView.Adapter<CommentListAdapter.
     @Override
     public void onViewAttachedToWindow(final ViewHolder holder) {
         super.onViewAttachedToWindow(holder);
-        final long delayTime = delayList[new Random().nextInt(5)];
-        holder.card.setVisibility(View.INVISIBLE);
 
-        if (holder.getPosition() > lastPosition) {
-            holder.card.getHandler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    holder.card.setVisibility(View.VISIBLE);
-                    ObjectAnimator alpha = ObjectAnimator.ofFloat(holder.card, "alpha", 0f, 1f);
-                    ObjectAnimator scaleY = ObjectAnimator.ofFloat(holder.card, "scaleY", 0f, 1f);
-                    ObjectAnimator scaleX = ObjectAnimator.ofFloat(holder.card, "scaleX", 0f, 1f);
-                    AnimatorSet animSet = new AnimatorSet();
-                    animSet.play(alpha).with(scaleY).with(scaleX);
-                    animSet.setInterpolator(new OvershootInterpolator());
-                    animSet.setDuration(400);
-                    animSet.start();
-
-                }
-            }, delayTime);
-
-            lastPosition = holder.getPosition();
-        } else {
-            holder.card.setVisibility(View.VISIBLE);
-        }
     }
 
     static float hypo(int a, int b) {
